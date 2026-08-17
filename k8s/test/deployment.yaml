@@ -3,19 +3,6 @@ kind: Namespace
 metadata:
   name: vk-bot-test
 ---
-apiVersion: v1
-kind: Secret
-metadata:
-  name: vk-bot-secrets
-  namespace: vk-bot-test
-type: Opaque
-stringData:
-  VK_TOKEN: "токен_тестового_сообщества"
-  VK_GROUP_ID: "123456789"
-  VK_CONFIRMATION_TOKEN: "строка_подтверждения"
-  VK_SECRET_KEY: ""
-  WALL_POST_ID: "1"
----
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -33,8 +20,8 @@ spec:
     spec:
       containers:
         - name: vk-bot
-          image: vk-bot:latest
-          imagePullPolicy: IfNotPresent
+          image: igalx/vk-bot:latest
+          imagePullPolicy: Always
           ports:
             - containerPort: 8080
           envFrom:
