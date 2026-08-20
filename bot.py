@@ -39,7 +39,7 @@ async def get_user_name(session, user_id):
 async def welcome_new_member(session, user_id):
     first_name = await get_user_name(session, user_id)
     mention = f"[id{user_id}|{first_name}]"
-    message = f"Добро пожаловать, {mention}! Рады видеть тебя в сообществе"
+    message = f"Привет, {mention}! Добро пожаловать 🤗 Если захочешь обсудить эскиз — я на связи: vk.me/kris.tatts"
 
     result = await vk_api_call(
         session,
